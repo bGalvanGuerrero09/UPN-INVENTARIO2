@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/login.dart';
+import 'views/login.dart';
 import 'theme/app_theme.dart';
 
 void main() {
