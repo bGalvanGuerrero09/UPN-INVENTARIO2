@@ -1,0 +1,87 @@
+{
+	"name": "UPN Inventario 2 - Flutter",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/home/web/sites/cloud/UPN-INVENTARIO2",
+	"shutdownAction": "stopCompose",
+	"remoteUser": "web",
+	"containerUser": "web",
+	"updateRemoteUserUID": true,
+	"containerEnv": {
+		"SHELL": "/bin/zsh",
+		"SSH_AUTH_SOCK": "/tmp/ssh-agent.sock"
+	},
+	"postCreateCommand": "sudo chown -R $(id -u):$(id -g) /home/web/.vscode-server /home/web/.pub-cache && flutter pub get",
+	"postStartCommand": "ssh-agent -a /tmp/ssh-agent.sock 2>/dev/null; ssh-add ~/.ssh/attach-ed25519 2>/dev/null || true",
+	"forwardPorts": [
+		8080
+	],
+	"portsAttributes": {
+		"8080": {
+			"label": "Flutter Web Server",
+			"onAutoForward": "notify"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Dart-Code.dart-code",
+				"Dart-Code.flutter",
+				"pkief.material-icon-theme",
+				"chouzz.vscode-better-align",
+				"editorconfig.editorconfig",
+				"humao.rest-client",
+				"irongeek.vscode-env",
+				"mhutchie.git-graph",
+				"ms-azuretools.vscode-docker",
+				"shardulm94.trailing-spaces"
+			],
+			"settings": {
+				"dart.flutterSdkPath": "/home/web/flutter",
+				"workbench.iconTheme": "material-icon-theme",
+				"workbench.editor.languageDetection": true,
+				"workbench.editor.highlightModifiedTabs": true,
+				"workbench.editor.enablePreviewFromQuickOpen": false,
+				"workbench.editor.decorations.colors": true,
+				"workbench.editor.decorations.badges": true,
+				"workbench.startupEditor": "none",
+				"workbench.colorTheme": "Monokai",
+				"editor.fontFamily": "Fira Code",
+				"editor.fontLigatures": true,
+				"editor.mouseWheelZoom": true,
+				"editor.multiCursorModifier": "ctrlCmd",
+				"editor.renderControlCharacters": true,
+				"editor.renderWhitespace": "selection",
+				"editor.rulers": [
+					80,
+					100
+				],
+				"editor.acceptSuggestionOnEnter": "off",
+				"editor.snippetSuggestions": "top",
+				"editor.minimap.enabled": false,
+				"editor.wordWrap": "off",
+				"editor.bracketPairColorization.enabled": true,
+				"editor.guides.highlightActiveIndentation": false,
+				"editor.accessibilitySupport": "off",
+				"editor.formatOnSave": true,
+				"[dart]": {
+					"editor.defaultFormatter": "Dart-Code.dart-code",
+					"editor.formatOnSave": true,
+					"editor.selectionHighlight": false,
+					"editor.suggestSelection": "first",
+					"editor.tabCompletion": "onlySnippets",
+					"editor.wordBasedSuggestions": "off"
+				},
+				"search.useIgnoreFiles": false,
+				"terminal.integrated.copyOnSelection": true,
+				"terminal.integrated.fontFamily": "MesloLGS NF",
+				"terminal.integrated.fontSize": 12,
+				"telemetry.telemetryLevel": "off",
+				"git.showCommitInput": false,
+				"diffEditor.wordWrap": "off",
+				"diffEditor.ignoreTrimWhitespace": false,
+				"files.eol": "\n"
+			}
+		}
+	}
+}

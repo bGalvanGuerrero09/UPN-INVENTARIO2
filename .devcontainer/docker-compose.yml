@@ -1,0 +1,23 @@
+name: upn-inventario2-devcontainer
+
+services:
+  app:
+    container_name: upn-inventario2-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: tail -F anything
+    user: web
+    working_dir: /home/web/sites/cloud/UPN-INVENTARIO2
+    volumes:
+      - ..:/home/web/sites/cloud/UPN-INVENTARIO2
+      - ~/.ssh:/home/web/.ssh:ro
+      - ~/.gnupg:/home/web/.gnupg
+      - vscode-server:/home/web/.vscode-server
+      - flutter-pub-cache:/home/web/.pub-cache
+    ports:
+      - 8080:8080
+
+volumes:
+  vscode-server:
+  flutter-pub-cache:
